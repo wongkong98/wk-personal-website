@@ -17,10 +17,10 @@ export const metadata: Metadata = {
 };
 
 const tabs = [
-  { value: "home", label: "Home" },
-  { value: "about", label: "About" },
-  { value: "projects", label: "Projects" },
-  { value: "contact", label: "Contact" },
+  { href: "#hero", label: "Hero" },
+  { href: "#about", label: "About" },
+  { href: "#experience", label: "Experience" },
+  { href: "#contact", label: "Contact" },
 ];
 
 export default function RootLayout({
@@ -30,16 +30,16 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body
-        className={`antialiased ${rubik.className} font-sans bg-zinc-50 dark:bg-black text-black dark:text-white`}
-      >
-        <TabsLine tabs={tabs} />
+      <TooltipProvider>
+        <body
+          className={`antialiased ${rubik.className} font-sans bg-zinc-50 dark:bg-black text-black dark:text-white`}
+        >
+          <TabsLine tabs={tabs} />
 
-        <TooltipProvider>
           <ThemeToggle />
           {children}
-        </TooltipProvider>
-      </body>
+        </body>
+      </TooltipProvider>
     </html>
   );
 }
