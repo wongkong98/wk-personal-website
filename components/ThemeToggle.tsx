@@ -26,7 +26,7 @@ export default function ThemeToggle() {
   return (
     <Tooltip>
       <TooltipTrigger asChild>
-        <Button variant="outline" size="icon" className="rounded-full absolute top-4 right-4" onClick={() => setDark(!dark)}>
+        <Button variant="outline" size="icon" className="rounded-full fixed top-4 right-4" onClick={() => setDark(!dark)}>
           {dark ? <SunDim className="h-4 w-4" /> : <Moon className="h-4 w-4" />}
         </Button>
       </TooltipTrigger>

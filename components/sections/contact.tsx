@@ -1,13 +1,16 @@
 import { Button } from "../ui/button";
 import { Field, FieldGroup, FieldLabel, FieldSet } from "../ui/field";
 import { Input } from "../ui/input";
+import { Separator } from "../ui/separator";
 import { Textarea } from "../ui/textarea";
 
 export default function Contact() {
   return (
-    <section id="contact" className="min-h-screen scroll-mt-24">
+    <section id="contact" className="min-h-screen scroll-mt-24 w-full">
       <h2 className="text-4xl">Contact</h2>
 
+      <Separator className='my-4' />
+      
       <form>
         <FieldGroup>
           <FieldSet>
@@ -47,7 +50,7 @@ export default function Contact() {
             </FieldGroup>
           </FieldSet>
 
-          <Field orientation="horizontal">
+          <Field orientation="horizontal" className="justify-end">
             <Button variant="outline" type="button">
               Reset
             </Button>
