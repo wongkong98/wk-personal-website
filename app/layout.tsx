@@ -1,11 +1,22 @@
 import type { Metadata } from "next";
 import "./globals.css";
+import { TooltipProvider } from "@/components/ui/tooltip";
+import ThemeToggle from "@/components/ThemeToggle";
+import TabsLine from "@/components/TabsLine";
+import localFont from 'next/font/local';
 
 export const metadata: Metadata = {
   title: "Wong Kong | Full-Stack Software Developer",
   description:
     "Personal website for Wong Kong, a full-stack software developer building reliable web applications, AI tooling, and production-ready software systems.",
 };
+
+const tabs = [
+  { value: "home", label: "Home" },
+  { value: "about", label: "About" },
+  { value: "projects", label: "Projects" },
+  { value: "contact", label: "Contact" },
+];
 
 export default function RootLayout({
   children,
