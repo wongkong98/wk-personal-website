@@ -1,26 +1,69 @@
 @import "tailwindcss";
+@custom-variant dark (&:where(.dark, .dark *));
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --background: #f4efe7;
+  --foreground: #0f172a;
+  --surface: rgba(255, 255, 255, 0.72);
+  --surface-strong: #ffffff;
+  --muted: #5b6472;
+  --accent: #f7941d;
+  --accent-deep: #0f172a;
+}
+
+.dark {
+  --background: #09111d;
+  --foreground: #e6edf7;
+  --surface: rgba(15, 23, 42, 0.72);
+  --surface-strong: #0f172a;
+  --muted: #9ca8bc;
+  --accent: #f6b453;
+  --accent-deep: #e6edf7;
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --color-surface: var(--surface);
+  --color-surface-strong: var(--surface-strong);
+  --color-muted: var(--muted);
+  --color-accent: var(--accent);
+  --color-accent-deep: var(--accent-deep);
+  --font-sans: "Aptos", "Trebuchet MS", "Segoe UI", sans-serif;
+  --font-mono: "Consolas", "SFMono-Regular", "Liberation Mono", monospace;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background-image:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.55), rgba(244, 239, 231, 0.92)),
+    radial-gradient(circle at top left, rgba(247, 148, 29, 0.14), transparent 32%),
+    radial-gradient(circle at 85% 18%, rgba(31, 95, 160, 0.12), transparent 28%);
+  font-family: var(--font-sans);
+  min-height: 100vh;
+  transition:
+    background-color 200ms ease,
+    color 200ms ease,
+    background-image 200ms ease;
+}
+
+.dark body {
+  background-image:
+    linear-gradient(180deg, rgba(9, 17, 29, 0.8), rgba(9, 17, 29, 0.94)),
+    radial-gradient(circle at top left, rgba(246, 180, 83, 0.14), transparent 30%),
+    radial-gradient(circle at 82% 18%, rgba(56, 189, 248, 0.12), transparent 26%);
+}
+
+::selection {
+  background: rgba(247, 148, 29, 0.28);
+  color: var(--foreground);
 }
